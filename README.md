@@ -23,8 +23,7 @@ target_yield_ge_20gpm_int = 0 if reported yield < 20 gallons/minute
 src/gpm/        Reusable Python package code
 scripts/        Command-line entrypoints for data, features, and models
 reports/        Markdown reports, metrics, figures, and presentation files
-data/           Local generated parquet outputs; large files ignored by git
-SDRDownload/    Local raw Texas SDR export; ignored by git
+data/           Local generated parquet outputs; 
 ```
 
 Important files:
@@ -66,7 +65,7 @@ Earth Engine authentication uses:
 gee-key.json
 ```
 
-This file is ignored by git. Do not commit or print its contents. The extractor
+This file is ignored by git. The extractor
 also supports local `earthengine authenticate` credentials when no service
 account key is present.
 
@@ -86,8 +85,7 @@ SDRDownload/
 ```
 
 The raw export and generated parquet datasets are intentionally excluded from
-Git because they are large/local artifacts. Keep only documentation and code in
-the repository.
+Git because they are large/local artifacts.
 
 ## Pipeline
 
@@ -269,23 +267,3 @@ F1:      0.819
 Spatial-block validation is lower, which is expected and more realistic for
 transfer to Kazakhstan. Treat the Texas result as proof-of-concept evidence, not
 as a deployable Kazakhstan model without local calibration and field validation.
-
-## GitHub Setup
-
-For a fresh repository:
-
-```bash
-git init
-git add .
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/gaanfok-ai/GWPM.git
-git push -u origin main
-```
-
-Before pushing, verify that local secrets and large artifacts are not staged:
-
-```bash
-git status --short
-git check-ignore gee-key.json gpm data/features/gee_yield20_features_merged_5000.parquet
-```
