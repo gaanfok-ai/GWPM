@@ -1,0 +1,15 @@
+gee-key.json
+/gpm/
+__pycache__/
+**/__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+*.egg-info/
+
+# Large/local data artifacts. Keep the folder README files in git.
+SDRDownload/
+data/**/*.parquet
+data/**/*.csv
+data/**/*.json
+models/

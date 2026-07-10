@@ -1,0 +1,77 @@
+{
+  "rows": 5000,
+  "target_distribution": {
+    "0": 1914,
+    "1": 3086
+  },
+  "feature_count": 93,
+  "block_size_degrees": 1.0,
+  "approx_block_size_km": 111.0,
+  "spatial_group_summary": {
+    "group_count": 73,
+    "min_group_size": 1,
+    "median_group_size": 32.0,
+    "max_group_size": 494,
+    "top_10_group_sizes": {
+      "32_-98": 494,
+      "30_-96": 340,
+      "29_-96": 318,
+      "30_-99": 250,
+      "29_-97": 236,
+      "30_-97": 221,
+      "33_-98": 196,
+      "29_-99": 176,
+      "32_-99": 171,
+      "28_-98": 170
+    }
+  },
+  "used_tuned_params": true,
+  "random_cv": {
+    "roc_auc": 0.8594160874844496,
+    "pr_auc": 0.89968273069194,
+    "accuracy": 0.7914,
+    "balanced_accuracy": 0.7725757474176362,
+    "f1": 0.8346281908990011,
+    "precision": 0.8171375349270413,
+    "recall": 0.8528839922229423,
+    "confusion_matrix": [
+      [
+        1325,
+        589
+      ],
+      [
+        454,
+        2632
+      ]
+    ],
+    "split_type": "stratified_random_cv",
+    "folds": 5
+  },
+  "spatial_cv": {
+    "roc_auc": 0.7705861947068061,
+    "pr_auc": 0.8234636341499686,
+    "accuracy": 0.7188,
+    "balanced_accuracy": 0.7003682657581243,
+    "f1": 0.7737367235275185,
+    "precision": 0.768542199488491,
+    "recall": 0.7790019442644199,
+    "confusion_matrix": [
+      [
+        1190,
+        724
+      ],
+      [
+        682,
+        2404
+      ]
+    ],
+    "split_type": "spatial_group_cv",
+    "folds": 5
+  },
+  "generalization_gap": {
+    "roc_auc_random_minus_spatial": 0.08882989277764353,
+    "pr_auc_random_minus_spatial": 0.07621909654197145,
+    "f1_random_minus_spatial": 0.060891467371482544
+  },
+  "interpretation": "If spatial CV is much lower than random CV, the model is learning local geographic structure that does not transfer well to unseen regions. That is expected in groundwater problems and should guide feature engineering and validation."
+}
